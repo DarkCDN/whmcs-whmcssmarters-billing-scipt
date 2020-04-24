@@ -402,9 +402,6 @@ getFiles() {
   #remove zip file
   rm /var/www/html/gdown.cookie.temp
   rm /var/www/html/gdown.pl
-  rm /var/www/html/gdown.pl.1
-  rm /var/www/html/gdown.pl.2
-  rm /var/www/html/gdown.pl.3
   rm /var/www/html/install.zip
   rm /var/www/html/wordpress.sh
   #remove bash script
