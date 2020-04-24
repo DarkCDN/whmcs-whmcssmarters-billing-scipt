@@ -3,7 +3,7 @@
 ###################################################################
 #         Author: Daily Updates
 #    Description: Installs WHMCS and Wordpress IPTV Billing Site.
-#            Run: bash wordpressiptv.sh
+#            Run: bash installer.sh
 #          Notes: In case of any errors just re-run the script.
 #                 Nothing will be re-installed except for the packages with errors.
 ###################################################################
