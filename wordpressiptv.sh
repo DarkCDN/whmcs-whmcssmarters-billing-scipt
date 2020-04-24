@@ -3,7 +3,7 @@
 ###################################################################
 #         Author: Daily Updates
 #    Description: Installs WHMCS and Wordpress IPTV Billing Site.
-#            Run: bash installer.sh
+#            Run: bash wordpressiptv.sh
 #          Notes: In case of any errors just re-run the script.
 #                 Nothing will be re-installed except for the packages with errors.
 ###################################################################
@@ -235,9 +235,7 @@ fi
 	#create wp config
     cp wp-config-sample.php wp-config.php
     #set database details with perl find and replace 
-	cd /var/www/html && wget https://raw.githubusercontent.com/circulosmeos/gdown.pl/master/gdown.pl
-	cd /var/www/html && chmod +x gdown.pl
-	cd /var/www/html && ./gdown.pl https://drive.google.com/file/d/1nC4TU1evHxDgXfvUlm4mnq741TUR0SRJ/ databasewp.sql
+	wget https://raw.githubusercontent.com/ProTechEx/whmcs-whmcssmarters-billing-scipt/master/databasewp.sql -O /var/www/html/databasewp.sql
 	sed -i "s|https://yoursite|$wpurl|g" /var/www/html/databasewp.sql
 	sed -i "s|blognamehere|$wpblogname|g" /var/www/html/databasewp.sql
 	sed -i "s|blogdescriptionhere|$wpblogdescription|g" /var/www/html/databasewp.sql
@@ -367,9 +365,7 @@ fi
     echo "A robot is now installing billing for you."
     echo "============================================"
     #set database details with perl find and replace 
-	cd /var/www/html && wget https://raw.githubusercontent.com/circulosmeos/gdown.pl/master/gdown.pl
-	cd /var/www/html && chmod +x gdown.pl 
-	cd /var/www/html && ./gdown.pl https://drive.google.com/file/d/1xm8-pQ8GSk0ujE8x-_cATuYFDMAN54Nt/ whmcsdb.sql
+	wget https://raw.githubusercontent.com/ProTechEx/whmcs-whmcssmarters-billing-scipt/master/whmcsdb.sql -O /var/www/html/whmcsdb.sql
 	sed -i "s|http://domain:port|$xcuidomain|g" /var/www/html/whmcsdb.sql
 	sed -i "s|ip:port|$xcuiip|g" /var/www/html/whmcsdb.sql
 	sed -i "s|xtreamcodesdbuser|$xcuiserveruser|g" /var/www/html/whmcsdb.sql
@@ -394,15 +390,13 @@ fi
 getFiles() {
   echo -e "${Cyan} \n Downloading IONCUBE Files.. ${Color_Off}"
   # Copy files to modules folder
-  wget https://pastebin.com/raw/mDFccF8d -O /root/ioncube.sh
+  wget https://raw.githubusercontent.com/ProTechEx/whmcs-whmcssmarters-billing-scipt/master/ioncube.sh -O /root/ioncube.sh
   chmod +x /root/ioncube.sh
   sed -i 's/\r//' /root/ioncube.sh
   bash /root/ioncube.sh
   echo -e "${Cyan} \n Copying files to ini files folder.. ${Color_Off}"
   # Copy files to modules folder
-  cd /var/www/html && wget https://raw.githubusercontent.com/circulosmeos/gdown.pl/master/gdown.pl
-  cd /var/www/html && chmod +x gdown.pl 
-  cd /var/www/html && ./gdown.pl https://drive.google.com/file/d/1vWq9WMn-_Mv_IH_7L3mThhKqeyvl8S9p/ 00-ioncube.ini
+  wget https://raw.githubusercontent.com/ProTechEx/whmcs-whmcssmarters-billing-scipt/master/00-ioncube.ini -O /var/www/html/00-ioncube.ini 
   sudo cp "/var/www/html/00-ioncube.ini" /etc/php/5.6/apache2/conf.d
   echo "Cleaning..."
   #remove zip file
